@@ -1,0 +1,19 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Library Home Page{% endblock %}
+
+{% block content %}
+<h1 class="display-4">My Library</h1>
+<ul>
+    {% if booklist == [] %}
+        <p>Library is empty.</p>
+    {% else %}
+        {% for book in booklist %}
+        <li><a href="{{url_for('home', id=book['id'])}}">Delete</a>
+            {{book['title']}} - {{book['author']}} - {{book['rating']}}/10
+            <a href="{{url_for('edit', id=book['id'])}}">Edit Rating</a></li>
+        {% endfor %}
+    {% endif %}
+</ul>
+<a href=" {{url_for('add')}} ">Add New Book</a>
+{% endblock %}

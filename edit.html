@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Rating</title>
+</head>
+<body>
+<p>Book Name: {{book_to_update.title}}</p>
+<p>Current Rating {{book_to_update.rating}}</p>
+<form method="POST" action="{{url_for('edit', id=book_to_update.id)}}" novalidate>
+    {{ form.csrf_token }}
+    <div>{{form.new_rating(size=10)}} {{form.submit}}
+    </div>
+</form>
+</body>
+</html>
